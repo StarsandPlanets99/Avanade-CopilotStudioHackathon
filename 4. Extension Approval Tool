@@ -1,0 +1,128 @@
+Absolutely — here is the **complete markdown** for adding the **Power Automate approval flow** to your Copilot Studio topic.
+
+This guide assumes you’ve already collected the user’s course selection and want to send an approval email with a hardcoded manager and the user CC’d.
+
+
+
+markdown
+# ✅ Adding Approval Flow to the Course Chooser Topic
+
+This guide shows you how to send an approval request after a user selects a training course in Copilot Studio. The flow uses **Power Automate** and sends the request to a hardcoded manager, copying in the user.
+
+
+
+## 🛠 Step 1: Create the Power Automate Flow
+
+1. In **Copilot Studio**, go to the **Agent flows** tab on the left menu.
+2. Click **+ New Flow**.
+3. Choose **When an agent calls this flow**.
+4. Name the flow:
+
+
+Course enrollment approval
+
+
+
+### ➕ Add Input Parameters:
+Click **+ Add Input** and create the following two string inputs:
+- `userEmail`
+- `trainingCategory`
+
+
+
+## ✉️ Step 2: Add the Approval Action
+
+1. Click **+ New Step** and search for:
+
+
+Start and wait for an approval
+
+
+2. Select:
+
+
+Approval type: Approve/Reject – First to respond
+
+`
+
+3. Configure the approval:
+- **Title**:
+  
+  Training approval: @{triggerBody()['trainingCategory']}
+  
+- **Assigned to**:
+  
+  admin@M365x81779748.onmicrosoft.com
+  
+- **Details** (Markdown format):
+  
+  A new training request needs your approval:
+
+  - **Requester**: @{triggerBody()['userEmail']}  
+  - **Course**: @{triggerBody()['trainingCategory']}  
+
+  Click Approve or Reject to proceed.
+  
+
+4. (Optional) Add another action to notify the user or log the decision.
+
+5. Save the flow.
+
+
+
+## 🔁 Step 3: Call the Flow from Your Topic
+
+In your **Copilot Studio topic** (after the GPT message):
+
+1. Click `+` and choose **Call an action → Power Automate**.
+2. Select the flow:  
+`
+
+Course enrollment approval
+
+
+
+3. Map the inputs:
+- `userEmail` → use the variable `User.Email` (create it earlier using "Set variable")
+- `trainingCategory` → use the variable from the Adaptive Card
+
+> 💡 If you haven't already captured the user’s email:
+> - Use **Set variable** step before this:  
+>   `Set variable: userEmail = User.Email`
+
+
+
+## 🧪 Step 4: Handle Authentication
+
+If you see a message like:
+
+
+
+Let’s get you connected first.
+
+
+
+Click **Open connection manager**, log in, and make sure the flow shows **Connected** status.
+
+
+
+## 🔚 Step 5: End the Topic
+
+1. After the Power Automate action, click `+`.
+2. Add a **Message** node:
+
+
+Thanks! Your course request has been submitted for approval. You'll receive a response soon.
+
+
+
+3. Add `End current topic`.
+
+
+
+✅ Done! Your agent will now send an approval email when a user chooses a training course.
+
+
+
+
+Let me know if you'd like this adapted for additional logic like approval tracking or adding cost back in later.
