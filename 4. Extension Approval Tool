@@ -5,7 +5,7 @@ This guide assumes you’ve already collected the user’s course selection and 
 
 
 markdown
-# ✅ Adding Approval Flow to the Course Chooser Topic
+# Adding Approval Flow to the Course Chooser Topic
 
 This guide shows you how to send an approval request after a user selects a training course in Copilot Studio. The flow uses **Power Automate** and sends the request to a hardcoded manager, copying in the user.
 
@@ -23,14 +23,14 @@ Course enrollment approval
 
 
 
-### ➕ Add Input Parameters:
+###  Add Input Parameters:
 Click **+ Add Input** and create the following two string inputs:
 - `userEmail`
 - `trainingCategory`
 
 
 
-## ✉️ Step 2: Add the Approval Action
+## Step 2: Add the Approval Action
 
 1. Click **+ New Step** and search for:
 
@@ -70,7 +70,7 @@ Approval type: Approve/Reject – First to respond
 
 
 
-## 🔁 Step 3: Call the Flow from Your Topic
+## Step 3: Call the Flow from Your Topic
 
 In your **Copilot Studio topic** (after the GPT message):
 
@@ -86,7 +86,7 @@ Course enrollment approval
 - `userEmail` → use the variable `User.Email` (create it earlier using "Set variable")
 - `trainingCategory` → use the variable from the Adaptive Card
 
-> 💡 If you haven't already captured the user’s email:
+>  If you haven't already captured the user’s email:
 > - Use **Set variable** step before this:  
 >   `Set variable: userEmail = User.Email`
 
@@ -106,7 +106,7 @@ Click **Open connection manager**, log in, and make sure the flow shows **Connec
 
 
 
-## 🔚 Step 5: End the Topic
+##  Step 5: End the Topic
 
 1. After the Power Automate action, click `+`.
 2. Add a **Message** node:
@@ -120,7 +120,7 @@ Thanks! Your course request has been submitted for approval. You'll receive a re
 
 
 
-✅ Done! Your agent will now send an approval email when a user chooses a training course.
+ Done! Your agent will now send an approval email when a user chooses a training course.
 
 
 
