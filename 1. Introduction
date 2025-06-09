@@ -1,0 +1,48 @@
+# AI Training Enrollment Agent Lab Overview
+
+This lab guides you through building a **Copilot Studio agent** to help employees explore and request training. You will enhance the agent with **retrieval-augmented generation (RAG)** for policy answers, **Adaptive Card inputs**, **prompt flows** for cost calculation, and an optional **Power Automate approval flow**.
+
+The lab focuses on low-code tools and no-code orchestration using Copilot Studio’s built-in GPT capabilities.
+
+---
+
+## What You’ll Build
+
+1. A Copilot Studio agent enhanced with:
+   - 📄 A **knowledge source** (e.g. Word doc) that enables **generative Q&A** about training policies
+   - 🧠 **AI-generated responses** via GPT-4o orchestration
+
+2. A **guided topic** that:
+   - Uses an **Adaptive Card** to collect the user's course selection
+   - Captures their Microsoft 365 email address
+   - Sends the selected input to a prompt
+
+3. A **prompt flow** that:
+   - Maps course selections to pricing tiers
+   - Applies rules (e.g. discounts)
+   - Returns a costed message with no code required
+
+4. An **optional Agent flow** that:
+   - Sends a course approval request to a hardcoded manager
+   - Returns the decision to the agent
+
+5. A polished conversational experience with a friendly, helpful agent.
+
+---
+
+## Key Capabilities You’ll Learn
+
+| Feature / Pattern                      | What You'll Learn & Do                                                      |
+|---------------------------------------|------------------------------------------------------------------------------|
+| **Knowledge Q&A (RAG)**               | Upload a Word doc and enable generative answers for training policy queries |
+| **System Variables**                  | Auto-capture the user’s email with `User.Email`                             |
+| **Topics with Adaptive Cards**        | Collect structured input using choice sets inside a conversation            |
+| **Prompt Engineering**                | Use prompt flows to dynamically calculate course cost                       |
+| **Variable Management**               | Store and use topic-level and prompt-level variables                        |
+| **Agent Flows (optional)**         | Trigger an approval flow and handle responses in the agent                  |
+| **GPT-4o Orchestration**              | Let the agent guide conversations using natural language understanding      |
+| **End-to-end testing**                | Preview and test the agent in Copilot Studio’s built-in chat simulator      |
+
+---
+
+> 💡 This lab is ideal for Power Platform makers and solution builders who want to combine **retrieval-based AI**, **structured input collection**, and **approval workflows** into a cohesive agent experience—**no code required**.
